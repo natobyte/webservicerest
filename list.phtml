@@ -1,0 +1,42 @@
+<?php 
+$dados = $this->getResult();
+$cliente = $dados->cliente; // Array de cliente
+$produto = $dados->produto; // Array de produto
+?>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Web Service</title>
+	<link rel="stylesheet" type="text/css" href="css/padrao.css">
+</head>
+<body>
+	<div id="main">
+		<div id="header">	
+			<div class="capa"><img src="<?php echo $cliente[0]->imagemCapa; ?>" /></div>
+			<div class="titulo"><h1><?php echo $cliente[0]->nome; ?></h1></div>
+			<div class="clear"></div>
+		</div>
+		<div id="dados" align="center">
+			<table>
+				<tr>
+					<th></th>
+					<th>Produto</th>
+					<th>Pre&ccedil;o</th>
+				</tr>
+				<?php
+				// Lista os produtos vindos do webservice
+				foreach ($produto as $key => $value) 
+				{
+					echo '<tr class="trCinza">';
+					echo '	<td><img class="imgTab" src="'.$produto[$key]->imagemProduto.'" />';
+					echo '	<td class="tdProduto">'.$produto[$key]->descricao.'</td>';
+					echo '	<td class="tdPreco">'.$produto[$key]->preco.'</td>';
+					echo '</tr>';
+				}
+				?>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
