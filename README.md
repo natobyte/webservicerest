@@ -1,5 +1,5 @@
-Web Service Rest
-================
+Web Service Rest com PHP
+========================
 
 Esse tutorial mostra como consumir dados de web service rest (formato JSON) com PHP.
 
